@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EmpowerHub Shop — Student Deals & Top Picks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { min-height:100%; height:100%; }
+    body { font-family:'Inter',sans-serif; background:#0a1627; color:#f1f5fa; min-height:100vh !important; }
+    .navbar, .footer { background: #141f38; }
+    .navbar-brand { font-weight:700; letter-spacing:2px; color:#53abf1!important; }
+    .nav-link { color:#e3f1fb!important; margin-left:1rem; font-weight:500; }
+    .nav-link:hover, .nav-link.active { color: #53abf1!important; }
+    .hero-section {
+      background: linear-gradient(90deg,#16233b 0%,#2351a2 100%);
+      border-radius:1rem;
+      margin:2rem auto 2rem auto;
+      box-shadow:0 4px 32px #001e4060;
+      padding:2.2rem 1.2rem 1.3rem 1.2rem;
+      max-width:730px;
+      text-align:center;
+    }
+    .hero-title { color:#53abf1; font-size:2.22rem; font-weight:700;}
+    .hero-sub { font-size:1.12rem; margin:.7rem 0 1.25rem 0; color:#e3f1fb;}
+    .filter-tabs {
+      display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem;
+      margin:0 auto 2rem auto; max-width:860px;
+    }
+    .filter-btn {
+      background:#1c2740; color:#53abf1; border:none; font-weight:600;
+      font-size:.97rem; padding:.45rem 1.1rem; border-radius:2rem;
+      box-shadow:0 1px 7px #001e4040; cursor:pointer; transition:.13s;
+    }
+    .filter-btn.active,.filter-btn:hover {background:#2471eb; color:#f1f5fa;}
+    .shop-grid {margin-bottom:2.1rem;}
+    .product-card {
+      background:#20294a; border-radius:1rem; box-shadow:0 2px 10px #001e4033;
+      color:#f1f5fa; padding:1.12rem 1rem 1.12rem 1rem;
+      border:1px solid #246fcc20; margin-bottom:1.15rem;
+      text-align:center; position:relative; transition:.12s;
+      min-height:295px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    }
+    .product-img {
+      width:92px; height:92px; object-fit:cover; border-radius:1rem; background:#141f38;
+      box-shadow:0 1px 7px #001e4088; margin-bottom:.75rem;
+    }
+    .product-title { font-size:1.09rem; color:#53abf1; font-weight:700; margin-bottom:.37rem;}
+    .product-desc { color:#b6cbe0; font-size:.96rem; margin-bottom:.53rem;}
+    .product-source-badge {
+      display:inline-block; background:#184e91; color:#e3f1fb; font-weight:600;
+      font-size:.85rem; border-radius:.9rem; padding:.17em .9em; margin-bottom:.59rem;
+      box-shadow:0 1px 6px #2351a233;
+    }
+    .product-price {color:#b0e1ff; font-size:1.02rem; margin-bottom:.45rem;}
+    .product-btn {
+      background:#2471eb; color:#fff; font-weight:600; border:none; border-radius:1.2rem; font-size:.98rem; padding:.45em 1.5em; margin-bottom:.15rem; margin-top:auto;
+    }
+    .product-btn:hover {background:#53abf1; color:#001e40;}
+    .affiliate-policy {
+      color:#5ad0fa;background:#182547; font-size:.99rem;
+      border-radius:.5rem;margin:1.15rem auto .5rem auto;max-width:700px; text-align:center;
+      padding:.8rem 1.2rem; box-shadow:0 1px 8px #001e4031;
+    }
+    .footer { border-top:2px solid #2a395e; color:#b6cbe0; padding:1.04rem 0; margin-top:2.1rem;}
+    @media (max-width:900px) {
+      .hero-section {max-width:99vw;}
+      .shop-grid, .affiliate-policy {max-width:99vw;}
+    }
+    @media (max-width:768px){
+      .hero-section{padding:1.0rem .23rem;}
+      .product-img{width:72px;height:72px;}
+      .shop-grid .col-md-4 {margin-bottom:1.1rem;}
+    }
+    @media (max-width:576px){
+      .hero-title{font-size:1.15rem;}
+      .hero-section{margin:.8rem auto .9rem auto; padding:.6rem .09rem;}
+      .filter-btn{font-size:.86rem; padding:.28rem .77rem;}
+      .product-title{font-size:.98rem;}
+      .product-desc{font-size:.89rem;}
+      .product-price{font-size:.88rem;}
+      .product-img{width:62px;height:62px;}
+      .affiliate-policy{font-size:.88rem;padding:.5rem .33rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">EmpowerHub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="guides.html">Guides</a></li>
+          <li class="nav-item"><a class="nav-link" href="freelancing.html">Freelance Jobs</a></li>
+          <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="postjob.html">Post a Job</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-title">Student Deals & Top Picks</div>
+    <div class="hero-sub">
+      Curated gadgets, books, and resources—handpicked for student needs.<br>
+      Every purchase supports EmpowerHub at no extra cost!
+    </div>
+  </section>
+  <!-- Filter Tabs -->
+  <div class="filter-tabs" id="filterTabs"></div>
+  <!-- Product Grid -->
+  <div class="container shop-grid">
+    <div class="row" id="productCards"></div>
+  </div>
+  <!-- Affiliate Policy Note -->
+  <div class="affiliate-policy">
+    <strong>Note:</strong> EmpowerHub includes affiliate links. We may earn a small commission at no extra cost to you if you buy through our links. We only recommend trusted products.
+  </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="mb-2">
+        <a href="#" class="mx-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" width="22" alt="Instagram" style="vertical-align:middle;filter:invert(52%) sepia(85%) saturate(1200%) hue-rotate(180deg) brightness(110%) contrast(100%);"></a>
+        <a href="#" class="mx-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width="22" alt="LinkedIn" style="vertical-align:middle;filter:invert(52%) sepia(85%) saturate(1200%) hue-rotate(180deg) brightness(110%) contrast(100%);"></a>
+        <a href="mailto:support@empowerhub.com" class="mx-2" style="color:#53abf1">support@empowerhub.com</a>
+      </div>
+      <div>
+        <a href="about.html" class="mx-2">About</a> |
+        <a href="contactus.html" class="mx-2">Contact</a> |
+        <a href="#" class="mx-2">Privacy</a> |
+        <a href="#" class="mx-2">Terms</a>
+      </div>
+      <small class="d-block mt-2">&copy; 2025 EmpowerHub. All rights reserved.</small>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Filters and product/demo data
+    const filters = [ "All", "Tech Gadgets", "Study Supply", "Hostel", "Fashion", "Amazon", "Flipkart", "Meesho", "Offers" ];
+    const products = [
+      { img:"https://m.media-amazon.com/images/I/618eYw0qVaL._AC_UL480_FMwebp_QL65_.jpg",
+        title:"HP Basic Wired Mouse",
+        desc:"Perfect for online classes, coding, or gaming at home. Super affordable & reliable.",
+        price:"Check Price",
+        source:"Amazon", filter:["Tech Gadgets","Amazon"] ,
+        url:"https://www.amazon.in/dp/B084RN6J6L?tag=your-affiliate-id"
+      },
+      { img:"https://rukminim2.flixcart.com/image/300/300/xif0q/pen/x/j/0/finegrip-blue-0-5-pack-of-10-snj0279672-10l-reynolds-original-imagjywnfqyabtyf.jpeg",
+        title:"Reynolds Finegrip Pen (Pack of 10)",
+        desc:"Exam ready! Reliable pen for smooth writing and fast note-taking.",
+        price:"₹70",
+        source:"Flipkart", filter:["Study Supply","Flipkart"] ,
+        url:"https://www.flipkart.com/reynolds-finegrip-blue/p/itm"
+      },
+      { img:"https://m.media-amazon.com/images/I/71Qw1Nj4M0L._AC_UL480_FMwebp_QL65_.jpg",
+        title:"Noise ColorFit Smartwatch",
+        desc:"Budget smartwatch with fitness tracker—be on time and healthy for college events.",
+        price:"Check Price",
+        source:"Amazon", filter:["Tech Gadgets","Amazon","Offers"],
+        url:"https://www.amazon.in/dp/B09QYHSH1L?tag=your-affiliate-id"
+      },
+      { img:"https://images.meesho.com/images/products/23363839/djzya_512.jpg",
+        title:"Hostel Metal Lunchbox",
+        desc:"Durable, mess-free tiffin box for college, hostels, or travel.",
+        price:"₹150",
+        source:"Meesho", filter:["Hostel","Meesho"],
+        url:"https://www.meesho.com/product/hostel-lunchbox"
+      },
+      { img:"https://m.media-amazon.com/images/I/81Fi-fR3ZYL._AC_UL480_FMwebp_QL65_.jpg",
+        title:"Casual Backpack, 30L",
+        desc:"Spacious and affordable—carry books, laptop and lunch in style.",
+        price:"Check Price",
+        source:"Amazon", filter:["Hostel","Amazon"],
+        url:"https://www.amazon.in/dp/B07Y3S8YGM?tag=your-affiliate-id"
+      },
+      { img:"https://rukminim2.flixcart.com/image/612/612/klzhq4w0/fabric/x/w/8/1-moon-sky-unstitched-original-imagyzp5v7whgmn8.jpeg",
+        title:"Men’s Summer Kurta",
+        desc:"Stylish and comfortable for classes, fests, or outings. Several colors and sizes.",
+        price:"Check Price",
+        source:"Flipkart", filter:["Fashion","Flipkart"],
+        url:"https://www.flipkart.com/men-s-summer-kurta/p/itm"
+      }
+    ];
+
+    // Make filter buttons
+    const filterTabs = document.getElementById("filterTabs");
+    filters.forEach(f => {
+      const btn = document.createElement("button");
+      btn.className = `filter-btn${f==="All"?" active":""}`;
+      btn.textContent = f;
+      btn.setAttribute("data-filter", f);
+      btn.onclick = () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        showProducts(f);
+      };
+      filterTabs.appendChild(btn);
+    });
+
+    // Product grid rendering
+    function showProducts(filter) {
+      const row = document.getElementById("productCards");
+      let toShow = products;
+      if (filter !== "All") {
+        toShow = products.filter(p => p.filter && p.filter.map(x=>x.toLowerCase()).includes(filter.toLowerCase()));
+      }
+      let html = "";
+      toShow.forEach(prod => {
+        html += `
+        <div class="col-12 col-md-4">
+          <div class="product-card">
+            <img class="product-img" src="${prod.img}" alt="${prod.title}">
+            <div class="product-title">${prod.title}</div>
+            <div class="product-desc">${prod.desc}</div>
+            <div class="product-source-badge">${prod.source}</div>
+            <div class="product-price">${prod.price}</div>
+            <a class="product-btn" href="${prod.url}" target="_blank" rel="noopener">Shop Now</a>
+          </div>
+        </div>
+        `;
+      });
+      row.innerHTML = html;
+    }
+    showProducts("All");
+
+    // Navbar mobile auto-close
+    document.addEventListener('click', function(event) {
+      var nav = document.getElementById('navbarNav');
+      var navbarToggler = document.querySelector('.navbar-toggler');
+      var isNavbarOpen = nav && nav.classList.contains('show');
+      if (isNavbarOpen && !nav.contains(event.target) && !navbarToggler.contains(event.target)) {
+        navbarToggler.click();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us — EmpowerHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { min-height:100%; height:100%; }
+    body { font-family:'Inter',sans-serif; background:#0a1627; color:#f1f5fa; min-height:100vh;}
+    .navbar, .footer { background: #141f38;}
+    .navbar-brand { font-weight:700; letter-spacing:2px; color:#53abf1!important;}
+    .nav-link { color:#e3f1fb!important; margin-left:1rem; font-weight:500;}
+    .nav-link:hover, .nav-link.active { color: #53abf1!important;}
+    .main-container { width:100%; max-width:1200px; margin:auto;}
+    .hero-section {
+      background: linear-gradient(90deg,#16233b 0%,#2351a2 100%);
+      border-radius:1rem;
+      margin:2rem 0 2.2rem 0; box-shadow:0 4px 32px #001e4060;
+      padding:2rem 2.2rem 1.6rem 2.2rem;text-align:center;width:100%;
+    }
+    .hero-title { color:#53abf1; font-size:2.41rem; font-weight:700;}
+    .hero-sub { font-size:1.19rem; margin:.8rem 0 0 0; color:#e3f1fb;}
+    .about-row { display:flex; gap:2.1rem; justify-content:space-between;  margin-bottom:2.1rem; flex-wrap:wrap;}
+    .about-col, .offer-col { flex:1 1 420px; min-width:280px;}
+    .about-title { color:#53abf1; font-size:1.28rem; font-weight:700; margin-bottom:.8rem;}
+    .about-text { color:#e3f1fb; font-size:1.09rem; margin-bottom:1.18rem;}
+    .icon-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px,1fr)); gap:1rem; margin-bottom:2.1rem;}
+    .icon-list-item {
+      background:#181e31; border-radius:1.2rem; box-shadow:0 1px 6px #12336614;
+      padding:1.07rem .6rem; color:#53abf1; text-align:center; font-size:1rem;
+      display:flex; flex-direction:column; align-items:center; gap:.49rem;
+      height:100%; min-height:135px;}
+    .icon-list-item img {height:39px;margin-bottom:.21rem;}
+    .story-section {background:#181e31; color:#e3f1fb; border-radius:1rem; box-shadow:0 1px 9px #001e4040; padding:1.43rem 1.14rem; margin-bottom:2.05rem; font-size:1.09rem;}
+    .team-section {margin:1.8rem 0;}
+    .team-title {color:#53abf1; font-size:1.22rem; font-weight:700; margin-bottom:1.13rem;}
+    .team-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:1rem;}
+    .team-card {background:#20294a; border-radius:1rem; box-shadow:0 2px 10px #001e4035; color:#f1f5fa; padding:1.09rem .9rem .9rem .9rem;text-align:center;margin-bottom:0;display:flex;flex-direction:column;align-items:center;}
+    .team-avatar {width:74px; height:74px; border-radius:99px; object-fit:cover; margin-bottom:.63rem; border:3px solid #53abf1; box-shadow:0 1px 8px #05305420;}
+    .team-name { font-weight:700; color:#53abf1; font-size:1.06rem;}
+    .team-role { color:#b6cbe0; font-size:.98rem; margin-bottom:.13rem;}
+    .team-link a {color:#53abf1;font-size:.99rem;text-decoration:underline;}
+    .whytrust-section{margin:2rem 0;}
+    .whytrust-title{color:#53abf1;font-size:1.15rem;font-weight:700;}
+    .whytrust-list {margin:1rem 0 1.5rem 1rem; color:#b6cbe0;font-size:1rem;}
+    .whytrust-list li {margin-bottom:.45rem;}
+    .value-section{margin:2.1rem 0;}
+    .value-title{color:#53abf1; font-size:1.14rem;font-weight:700;}
+    .value-list{display:flex;flex-wrap:wrap;gap:1rem 2rem; padding:0; margin:1rem 0;}
+    .value-item{
+      flex:1 1 260px;background:#181e31;border-radius:.9rem;padding:1rem 1rem .7rem 1rem;
+      color:#e3f1fb;font-size:1.06rem;box-shadow:0 1px 7px #2876e033;
+    }
+    .student-achieve-section{margin:2.1rem 0;}
+    .achieve-title{color:#53abf1;font-size:1.13rem;font-weight:700;}
+    .achieve-list{display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;}
+    .achieve-card{
+      flex:1 1 320px;background:#182547;border-radius:.9rem;padding:.9rem 1rem;color:#fff;
+      box-shadow:0 1px 7px #00224430;font-size:.97rem;
+    }
+    .featured-in-section {margin:2.1rem 0;}
+    .featured-title {color:#53abf1;font-size:1.14rem;font-weight:700;margin-bottom:.7rem;}
+    .featured-logos{display:flex;gap:1.4rem;flex-wrap:wrap;}
+    .featured-logos img{height:33px;background:#fff;border-radius:.33rem;padding:.17rem;}
+    .getstarted-section{margin:2.5rem 0 1.3rem 0;}
+    .getstarted-title{color:#53abf1;font-size:1.15rem;font-weight:700;}
+    .getstarted-steps{display:flex;flex-wrap:wrap;gap:1rem;}
+    .getstarted-step{
+      flex:1 1 300px; background:#181e31;color:#b6cbe0;border-radius:.8rem;padding:.7rem 1rem;
+      box-shadow:0 1px 7px #001e4040;text-align:center;
+    }
+    .contact-section{text-align:center; margin:2.3rem 0;}
+    .contact-title {color:#53abf1;font-size:1.18rem;font-weight:700;}
+    .contact-links a {color:#53abf1; font-size:1.07rem; margin:.24rem .58rem;}
+    .contact-links a:hover {text-decoration:underline;}
+    .footer { border-top:2px solid #2a395e; color:#b6cbe0; padding:1.02rem 0; margin-top:2.1rem;}
+    @media (max-width:1200px){.main-container{padding:0 .6rem;}}
+    @media (max-width:900px){
+      .hero-section, .main-container{padding:0 .18rem;}
+      .about-row{flex-direction:column;gap:1.13rem;}
+      .team-row{grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:.75rem;}
+      .icon-grid{grid-template-columns:1fr;}
+      .achieve-list{flex-direction:column;}
+      .value-list{flex-direction:column;}
+      .getstarted-steps{flex-direction:column;}
+    }
+    @media (max-width:650px){
+      .main-container{padding:0 .04rem;}
+      .hero-section{padding:.71rem .03rem;}
+    }
+    @media (max-width:576px){
+      .hero-title{font-size:1.12rem;}
+      .about-title, .team-title, .whytrust-title, .contact-title, .value-title, .achieve-title, .featured-title, .getstarted-title{font-size:.97rem;}
+      .about-text, .whytrust-list, .story-section, .value-list, .achieve-list, .featured-logos{font-size:.95rem;}
+      .team-name{font-size:1.01rem;}
+      .team-card{padding:.71rem .21rem .55rem .21rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">EmpowerHub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="guides.html">Guides</a></li>
+          <li class="nav-item"><a class="nav-link" href="freelancing.html">Freelance Jobs</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="post-job.html">Post a Job</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="main-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-title">About EmpowerHub</div>
+      <div class="hero-sub">
+        Empowering students to earn, learn, and grow online—safely and simply.<br>
+        <span style="color:#b6e3ff;font-size:1.05rem;">Your all-in-one student resource for online income, jobs, and skills.</span>
+      </div>
+    </section>
+    <!-- About + What We Offer -->
+    <div class="about-row">
+      <div class="about-col">
+        <div class="about-title">Our Mission</div>
+        <div class="about-text">
+          We believe every student deserves real digital opportunities—without scams, hype, or complicated jargon. EmpowerHub exists to make earning, learning, and thriving online truly accessible for all.
+        </div>
+        <div class="about-title">Our Story</div>
+        <div class="story-section">
+          Born from real student struggles and side hustles, EmpowerHub started in a hostel room with only one laptop and a Telegram group of curious friends.<br><br>
+          Today, we’re building India's most trusted student platform for honest, practical digital growth.<br>
+          <b>Created by students, for students.</b>
+        </div>
+      </div>
+      <div class="offer-col">
+        <div class="about-title">What We Offer</div>
+        <div class="icon-grid">
+          <div class="icon-list-item"><img src="https://img.icons8.com/color/48/open-book--v2.png" alt="Guides">Step-by-step earning guides</div>
+          <div class="icon-list-item"><img src="https://img.icons8.com/color/48/contract-job.png" alt="Jobs">Curated freelance jobs & internships</div>
+          
+          <div class="icon-list-item"><img src="https://img.icons8.com/color/48/money-bag.png" alt="Deals">Student deals and offers (Shop)</div>
+          <div class="icon-list-item"><img src="https://img.icons8.com/color/48/chat--v4.png" alt="Community">Free support and Q&amp;A community</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student Achievements -->
+    <section class="student-achieve-section">
+      <div class="achieve-title">Student Achievements</div>
+      <div class="achieve-list">
+        <div class="achieve-card"><b>300+</b> students earned their first freelance payment in 2025 using our guides.</div>
+        <div class="achieve-card"><b>60%</b> of users report improved digital skills and CV after joining EmpowerHub workshops.</div>
+        <div class="achieve-card">Winner of <b>EdStart 2025</b> for Most Practical Campus Startup, Kakinada, AP.</div>
+      </div>
+    </section>
+
+    <!-- "Featured In" Brand Bar -->
+  
+
+    <!-- Values Section -->
+    <section class="value-section">
+      <div class="value-title">Our Values</div>
+      <div class="value-list">
+        <div class="value-item"><b>Practicality:</b> Every guide, job, or tool is tested and suited for real students.</div>
+        <div class="value-item"><b>Transparency:</b> We say no to fake “hacks” and always disclose affiliate/sponsored content.</div>
+        <div class="value-item"><b>Inclusivity:</b> Built for every student, regardless of background or economic status.</div>
+        <div class="value-item"><b>Growth:</b> Learn skills, earn side income, and network for the future.</div>
+      </div>
+    </section>
+
+    <!-- How to Get Started -->
+    <section class="getstarted-section">
+      <div class="getstarted-title">How to Get Started?</div>
+      <div class="getstarted-steps">
+        <div class="getstarted-step"><b>1.</b> Browse our <a href="guides.html" style="color:#53abf1;">earning guides</a></div>
+        <div class="getstarted-step"><b>2.</b> Apply to <a href="freelancing.html" style="color:#53abf1;">freelance jobs</a> or try a student income pathway</div>
+        <div class="getstarted-step"><b>3.</b> Level up your CV with our free <a href="portfolio-template.html" style="color:#53abf1;">templates</a></div>
+        <div class="getstarted-step"><b>4.</b> Join our student community and take part in Q&A</div>
+      </div>
+    </section>
+
+    <!-- Team Section (full grid) -->
+    <section class="team-section">
+      <div class="team-title">Meet the Team</div>
+      <div class="team-row">
+        <div class="team-card">
+          <img class="team-avatar" src="https://img.icons8.com/color/96/administrator-male--v1.png" alt="Vinay">
+          <div class="team-name">K Vinay</div>
+          <div class="team-role">Founder & Editor</div>
+          <div class="team-link"><a href="mailto:vinaythemay@gmail.com">vinaythemay@gmail.com</a></div>
+        </div>
+        <div class="team-card">
+          <img class="team-avatar" src="https://img.icons8.com/color/96/user-female-circle.png" alt="Aditi">
+          <div class="team-name">Aditi Rao</div>
+          <div class="team-role">Content & Community</div>
+          <div class="team-link"><a href="mailto:aditi@empowerhub.com">aditi@empowerhub.com</a></div>
+        </div>
+        <div class="team-card">
+          <img class="team-avatar" src="https://img.icons8.com/color/96/student-center.png" alt="Rohan">
+          <div class="team-name">Rohan Patel</div>
+          <div class="team-role">Tech Lead</div>
+          <div class="team-link"><a href="mailto:rohan@empowerhub.com">rohan@empowerhub.com</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Trust Us -->
+    <section class="whytrust-section">
+      <div class="whytrust-title">Why Trust EmpowerHub?</div>
+      <ul class="whytrust-list">
+        <li>No paid scams or get-rich-quick hype, ever.</li>
+        <li>We test every method and deal ourselves before posting.</li>
+        <li>Affiliate/promo links are always disclosed and optional.</li>
+        <li>Independent—built by real students, not big corporations.</li>
+        <li>Direct contact: If you spot any issue, we want your feedback!</li>
+      </ul>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="contact-section">
+      <div class="contact-title">Get in Touch</div>
+      <div class="contact-links mb-2">
+        <a href="mailto:vinaythemay@gmail.com">vinaythemay@gmail.com</a>
+        <a href="https://instagram.com/" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+      </div>
+      <div style="color:#b6cbe0;font-size:1.01rem;">
+        For partnership, support, or suggestions—reach us anytime!
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="mb-2">
+        <a href="#" class="mx-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" width="22" alt="Instagram" style="vertical-align:middle;filter:invert(52%) sepia(85%) saturate(1200%) hue-rotate(180deg) brightness(110%) contrast(100%);"></a>
+        <a href="#" class="mx-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width="22" alt="LinkedIn" style="vertical-align:middle;filter:invert(52%) sepia(85%) saturate(1200%) hue-rotate(180deg) brightness(110%) contrast(100%);"></a>
+        <a href="mailto:support@empowerhub.com" class="mx-2" style="color:#53abf1">support@empowerhub.com</a>
+      </div>
+      <div>
+        <a href="about.html" class="mx-2">About</a> |
+        <a href="contactus.html" class="mx-2">Contact</a> |
+        <a href="#" class="mx-2">Privacy</a> |
+        <a href="#" class="mx-2">Terms</a>
+      </div>
+      <small class="d-block mt-2">&copy; 2025 EmpowerHub. All rights reserved.</small>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

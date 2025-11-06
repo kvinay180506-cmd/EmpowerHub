@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Post a Job or Internship - EmpowerHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { height:100%; min-height:100%; }
+    body { font-family:'Inter',sans-serif; background:#0a1627; color:#f1f5fa; min-height:100vh !important; }
+    .navbar, .footer { background: #141f38; }
+    .navbar-brand { font-weight:700; letter-spacing:2px; color:#53abf1!important; }
+    .nav-link { color:#e3f1fb!important; margin-left:1rem; font-weight:500; }
+    .nav-link:hover, .nav-link.active { color: #53abf1!important; }
+    .hero-section {
+      background: linear-gradient(90deg,#16233b 0%,#2351a2 100%);
+      border-radius:1rem;
+      margin:2rem auto 2.4rem auto;
+      box-shadow:0 4px 32px #001e4060;
+      padding:2.7rem 1.2rem 2rem 1.2rem;
+      max-width:700px;
+      text-align:center;
+    }
+    .hero-title { color:#53abf1; font-size:2.15rem; font-weight:700;}
+    .hero-sub { font-size:1.11rem; margin:.7rem 0 1.45rem 0; color:#e3f1fb;}
+    .jobform-section {
+      background:#181e31; border-radius:1.2rem; box-shadow:0 4px 32px #001e4050;
+      padding:2rem 1.2rem 1.7rem 1.2rem; margin:2rem auto 2.2rem auto;
+      max-width:760px;
+    }
+    .jobform-title { color:#53abf1; font-size:1.41rem; font-weight:700; text-align:center; }
+    .form-label { color:#b6cbe0; font-size:.98rem; }
+    .jobform-btn { background:#2471eb; color:#fff; border:none; border-radius:2rem; font-size:1.06rem; padding:.7em 2em; font-weight:600; margin-top:.65rem;}
+    .jobform-btn:hover {background:#53abf1; color:#001e40;}
+    .jobform-note { color:#53abf1; background:#1c2740; border-radius:.6rem; font-size:.93rem; padding: .6rem 1rem; margin-bottom:1.3rem; margin-top:1rem;}
+    .job-success { background:#11b05422; color:#55da90; border-radius:.6rem; text-align:center; padding:.9rem 1rem; font-weight:600; font-size:1.14rem;}
+    .faq-section {max-width:700px; margin:2rem auto;}
+    .faq-title { color:#53abf1; font-size:1.19rem; font-weight:700; }
+    .faq-item {margin-bottom:.85rem;}
+    .faq-q {color:#53abf1;font-weight:600;}
+    .faq-a {color:#b6cbe0; font-size:.97rem;}
+    .footer{ border-top:2px solid #2a395e; color:#b6cbe0; padding:1.15rem 0; margin-top:2.4rem;}
+    .page-end-spacing {height:60px;}
+    input, select, textarea {
+      background:#1e2542 !important; color:#f1f5fa !important; border:1px solid #2375ed60 !important;
+      border-radius:.5rem !important; margin-bottom:.7rem !important;
+    }
+    input:focus, select:focus, textarea:focus { border:1.5px solid #53abf1 !important;}
+    @media (max-width: 600px){
+      .hero-section, .jobform-section, .faq-section { padding:1.2rem .18rem 1.2rem .18rem !important; max-width:99vw;}
+      .jobform-title, .faq-title{font-size:1.1rem;}
+      .page-end-spacing{height:33px;}
+    }
+    @media (max-width: 576px){
+      .hero-section{margin:.7rem auto .9rem auto; padding:.6rem .09rem;}
+      .hero-title{font-size:1.09rem;}
+      .jobform-title, .faq-title{font-size:1rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">EmpowerHub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="guides.html">Guides</a></li>
+          <li class="nav-item"><a class="nav-link" href="freelancing.html">Freelance Jobs</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link active" href="post-job.html">Post a Job</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Hero / Intro Section -->
+  <section class="hero-section">
+    <div class="hero-title">Post a Job or Internship</div>
+    
+  </section>
+  <!-- Job Form Section -->
+  <section class="jobform-section">
+    <div class="jobform-title mb-4">Job Posting Form</div>
+    <form id="postJobForm" enctype="multipart/form-data" autocomplete="off">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label" for="jobTitle">Job Title *</label>
+          <input class="form-control" id="jobTitle" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="companyName">Company/Your Name *</label>
+          <input class="form-control" id="companyName" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="jobEmail">Contact Email *</label>
+          <input class="form-control" id="jobEmail" type="email" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="jobPhone">Phone (optional)</label>
+          <input class="form-control" id="jobPhone" type="tel">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="jobType">Job Type *</label>
+          <select class="form-control" id="jobType" required>
+            <option>Freelance</option>
+            <option>Internship</option>
+            <option>Part-Time</option>
+            <option>Onsite</option>
+            <option>Remote</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="jobLocation">Location *</label>
+          <input class="form-control" id="jobLocation" required>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="jobShortDesc">Short Description (2-3 lines) *</label>
+          <textarea class="form-control" id="jobShortDesc" rows="2" required></textarea>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="jobTasks">What’s expected / Main tasks *</label>
+          <textarea class="form-control" id="jobTasks" rows="3" required></textarea>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="jobSkills">Skills or Tools Needed *</label>
+          <input class="form-control" id="jobSkills" required placeholder="e.g. Excel, Canva, Python">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="jobCompensation">Pay / Compensation *</label>
+          <input class="form-control" id="jobCompensation" required placeholder="₹400 per hour, Stipend, etc.">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="jobDeadline">Application Deadline</label>
+          <input class="form-control" id="jobDeadline" type="date">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="jobAttachment">Attach File (optional)</label>
+          <input class="form-control" id="jobAttachment" type="file" accept=".pdf,.docx,.doc,rft,.txt,.jpg,.png">
+        </div>
+      </div>
+      <button class="jobform-btn w-100 mt-4" type="submit">Submit Job</button>
+      <div class="jobform-note mt-3">
+        All jobs will be reviewed by EmpowerHub before going live. Scams, fake, or incomplete postings will be declined.
+      </div>
+    </form>
+    <div id="jobFormSuccess" class="mt-4" style="display:none;">
+      <div class="job-success">
+        🎉 Your job has been submitted!<br>
+        It will appear within <b>24 hours</b> after a quick review.<br>
+        <a href="postjob.html" style="display:inline-block;margin-top:.8em;color:#53abf1;">Post another job</a> |
+        <a href="freelancing.html" style="display:inline-block;margin-top:.8em;color:#53abf1;">Browse freelancers</a>
+      </div>
+    </div>
+  </section>
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="faq-title mb-2">FAQs about Posting</div>
+    <div class="faq-item">
+      <span class="faq-q">How long does my job take to go live?</span>
+      <div class="faq-a">Usually within 24 hours. Our team checks each submission for authenticity and clarity.</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Can I edit my job after posting?</span>
+      <div class="faq-a">Yes—contact our team with your job details or reply to your confirmation email.</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Is there any cost for posting a job?</span>
+      <div class="faq-a">Yes, a small fee (5% of Pay) is charged for each job posted.</div>
+    </div>
+     <div class="faq-item">
+      <span class="faq-q">How to pay the fee for posting a job?</span>
+      <div class="faq-a">Our team will reach out to you within 24 hours for payment.</div>
+    </div>
+  </section>
+  <div class="page-end-spacing"></div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="mb-2">
+        <a href="#" class="mx-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" width="22" alt="Instagram" style="vertical-align:middle;filter:invert(52%) sepia(85%) saturate(1200%) hue-rotate(180deg) brightness(110%) contrast(100%);"></a>
+        <a href="#" class="mx-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width="22" alt="LinkedIn" style="vertical-align:middle;filter:invert(52%) sepia(85%) saturate(1200%) hue-rotate(180deg) brightness(110%) contrast(100%);"></a>
+        <a href="mailto:support@empowerhub.com" class="mx-2" style="color:#53abf1">support@empowerhub.com</a>
+      </div>
+      <div>
+        <a href="about.html" class="mx-2">About</a> |
+        <a href="contactus.html" class="mx-2">Contact</a> |
+        <a href="#" class="mx-2">Privacy</a> |
+        <a href="#" class="mx-2">Terms</a>
+      </div>
+      <small class="d-block mt-2">&copy; 2025 EmpowerHub. All rights reserved.</small>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Handle form submit (prototype: just show confirmation, no actual sending)
+    document.getElementById('postJobForm').onsubmit = function(e){
+      e.preventDefault();
+      document.getElementById('postJobForm').style.display = "none";
+      document.getElementById('jobFormSuccess').style.display = "";
+      window.scrollTo({top:0,behavior:'smooth'});
+    };
+    // Auto close mobile menu
+    document.addEventListener('click', function(event) {
+      var nav = document.getElementById('navbarNav');
+      var navbarToggler = document.querySelector('.navbar-toggler');
+      var isNavbarOpen = nav && nav.classList.contains('show');
+      if (isNavbarOpen && !nav.contains(event.target) && !navbarToggler.contains(event.target)) {
+        navbarToggler.click();
+      }
+    });
+  </script>
+</body>
+</html>

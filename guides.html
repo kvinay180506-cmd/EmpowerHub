@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guides - EmpowerHub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #0a1627; color: #f1f5fa; min-height: 100vh; }
+    .navbar, .footer { background: #141f38; }
+    .navbar-brand { font-weight: 700; letter-spacing: 2px; color: #53abf1 !important; }
+    .nav-link { color: #e3f1fb !important; margin-left: 1rem; font-weight: 500; }
+    .nav-link:hover, .nav-link.active { color: #53abf1 !important; }
+    .section-title { color: #53abf1; margin-bottom: 1rem; font-size: 2rem; text-align: center; }
+    .search-bar { margin-top: 1.2rem; margin-bottom: 0.8rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .category-tabs { margin: 0 auto 0.5rem auto; display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; }
+    .category-tab { background: #1c2740; color: #53abf1; border: none; font-weight: bold; font-size: 1.08rem; padding: .62rem 1.2rem; border-radius: 2rem; box-shadow: 0 1px 8px #001e4044; cursor: pointer; transition: background 0.2s, color 0.2s; margin-bottom: 0.5rem; }
+    .category-tab.active, .category-tab:hover {background: #2471eb; color: #f1f5fa;}
+    .subcategory-tabs { display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .subcategory-btn { background: #1c2740; color: #b6cbe0; border: none; font-weight: 500; font-size: 0.97rem; padding: .4rem 1rem; border-radius: 2rem; cursor: pointer; transition: background 0.2s, color 0.2s; margin-bottom: 0.3rem; }
+    .subcategory-btn.active, .subcategory-btn:hover { background: #53abf1; color: #001e40; }
+    .guides-section { min-height: 390px; }
+    .guide-card { background: #222b47; border-radius: 1rem; box-shadow: 0 2px 12px #001e4033; color: #f1f5fa; margin-bottom: 1.3rem; padding: 1rem; text-align: center; border: 1px solid #246fcc20; opacity: 1; transition: transform .45s cubic-bezier(.23,1.14,.45,1.21), opacity .28s linear;}
+    .slide-out-left { opacity: 0; transform: translateX(-90vw) scale(0.94); pointer-events: none;}
+    .slide-in-right { opacity: 0; transform: translateX(80vw) scale(0.94); animation: slideInRight .53s cubic-bezier(.23,1.14,.45,1.21) both;}
+    @keyframes slideInRight { from { opacity: 0; transform: translateX(80vw) scale(0.94);} to { opacity: 1; transform: translateX(0) scale(1);} }
+    .guide-img { width: 48px; height: 48px; border-radius: 8px; background: #141f38; margin-bottom: 0.9rem; object-fit: cover; box-shadow: 0 1px 4px #0a162744; display: inline-block; }
+    .guide-title { font-size: 1.08rem; font-weight: 700; color: #53abf1; margin-bottom: .44rem; }
+    .guide-desc { font-size: .97rem; color: #b6cbe0; margin-bottom: 0.80rem;}
+    .guide-btn { display: inline-block; border-radius: 2rem; font-size: .98rem; padding: .44em 1.1em; background: #2471eb; color: #f1f5fa; border: none; font-weight: 500; text-decoration: none; transition: background .18s, color .18s; margin-bottom: 0.2rem;}
+    .guide-btn:hover {background: #53abf1; color: #001e40;}
+    .pagination { justify-content: center; margin-top: 1.1rem; margin-bottom: 2.1rem; flex-wrap: wrap; }
+    .page-link, .page-item { background: #1c2740; border: none; color: #53abf1; font-weight: 500; border-radius: 1rem; margin-right: .18rem; transition: background .15s, color .15s;}
+    .page-link:hover, .page-item.active .page-link { background: #2471eb; color: #f1f5fa;}
+    .footer { border-top: 2px solid #2a395e; color: #b6cbe0; padding: 1.05rem 0; margin-top: 2.1rem; }
+    .icon { font-size: 2rem; margin: 0 .12rem 0 .12rem; color: #53abf1; }
+    .note-more-guides { text-align:center; color:#53abf1; font-size:1.07rem; margin-bottom:1.1rem; font-weight:bold;}
+    @media (max-width: 768px) {
+      .search-bar { margin-top: 0.8rem; }
+      .container { padding-left: 9px !important; padding-right: 9px !important; }
+    }
+    @media (max-width: 576px) {
+      .category-tab, .subcategory-btn {
+        padding: .38rem 0.7rem;
+        font-size: .9rem;
+      }
+      .section-title { font-size: 1.1rem; }
+      .guide-title { font-size: .99rem; }
+      .guide-desc { font-size: .91rem; }
+      .guide-img { width: 36px; height: 36px; margin-bottom: 0.5rem; }
+      .guide-card { padding: 0.65rem; }
+      .guide-btn { font-size: .92rem; padding: .3em .88em; }
+      .search-bar { padding-right: 0px; padding-left: 0px; }
+      .note-more-guides { font-size: 0.96rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#">EmpowerHub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="guides.html">Guides</a></li>
+          <li class="nav-item"><a class="nav-link" href="freelancing.html">Freelance Jobs</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="postjob.html">Post a Job</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" class="form-control form-control-lg" placeholder="🔍  Type to find a guide ...">
+  </div>
+
+  <!-- Category Tabs -->
+  <div class="category-tabs" id="categoryTabs">
+    <button class="category-tab active" data-category="money">Money Making</button>
+    <button class="category-tab" data-category="self">Self Care</button>
+    <button class="category-tab" data-category="finance">Financial Freedom</button>
+  </div>
+
+  <!-- Subcategory Tabs -->
+  <div class="subcategory-tabs" id="subcategoryTabs"></div>
+
+  <!-- Guides Section -->
+  <div class="container guides-section">
+    <h2 class="section-title" id="guideHeader">Guides</h2>
+    <div class="row g-2" id="guideCards"></div>
+    <div id="noteMoreGuides"></div>
+    <nav>
+      <ul class="pagination" id="pagination"></ul>
+    </nav>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="mb-2">
+        <a href="#" class="mx-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" width="22" alt="Instagram" style="vertical-align:middle;filter:invert(52%) sepia(85%) saturate(1200%) hue-rotate(180deg) brightness(110%) contrast(100%);"></a>
+        <a href="#" class="mx-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width="22" alt="LinkedIn" style="vertical-align:middle;filter:invert(52%) sepia(85%) saturate(1200%) hue-rotate(180deg) brightness(110%) contrast(100%);"></a>
+        <a href="mailto:support@empowerhub.com" class="mx-2" style="color:#53abf1">support@empowerhub.com</a>
+      </div>
+      <div>
+        <a href="about.html" class="mx-2">About</a> |
+        <a href="contactus.html" class="mx-2">Contact</a> |
+        <a href="#" class="mx-2">Privacy</a> |
+        <a href="#" class="mx-2">Terms</a>
+      </div>
+      <small class="d-block mt-2">&copy; 2025 EmpowerHub. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Show 9 guides per page
+    const guidesPerPage = 9;
+    let currentPage = 1;
+    let currentCatKey = 'money';
+    let currentSubKey = 'no';
+
+    // FULL guidesData including Self Care and Financial Freedom
+    const guidesData = {
+      money: {
+        name: "Money Making",
+        subs: [
+          {name: "No Investments", key: "no"},
+          {name: "Little Investments", key: "little"},
+          {name: "High Investments", key: "high"}
+        ],
+        guides: {
+          no: [
+            { img: 'https://img.icons8.com/color/96/handshake.png', title: 'Create Fiverr Account Step-by-Step', desc: 'Learn to sign up for Fiverr with screenshots and a full guide.', link: 'guideopen.html' },
+            { img: 'https://img.icons8.com/color/96/money.png', title: 'Content Creation', desc: 'Start a YouTube/Instagram channel.', link: 'content-creation-guide.html' },
+            { img: 'https://img.icons8.com/color/96/online-money-transfer.png', title: 'Online Survey Earning', desc: 'Find legit survey platforms for students.', link: 'online-survey-guide.html' }
+            // Add more as needed
+          ],
+          little: [
+            { img: 'https://img.icons8.com/color/96/books.png', title: 'Domain Flipping', desc: 'Buy cheap domains and resell for profit.', link: 'domain-flip-guide.html' },
+            { img: 'https://img.icons8.com/color/96/strategy-board.png', title: 'Course Creator Blueprint', desc: 'Launch and sell online courses.', link: 'course-creator-guide.html' }
+          ],
+          high: [
+            { img: 'https://img.icons8.com/color/96/bar-chart.png', title: 'E-commerce Store Setup', desc: 'How to build and launch a store.', link: 'ecommerce-guide.html' },
+            { img: 'https://img.icons8.com/color/96/cloud-service.png', title: 'SaaS Product Launch', desc: 'Build your first SaaS business.', link: 'saas-launch-guide.html' }
+          ]
+        }
+      },
+      self: {
+        name: "Self Care",
+        subs: [
+          {name: "Mental Wellness", key: "mental"},
+          {name: "Physical Fitness", key: "physical"},
+          {name: "Productivity & Skills", key: "productivity"}
+        ],
+        guides: {
+          mental: [
+            { img: 'https://img.icons8.com/color/96/meditation-guru.png', title: 'Stress Management Techniques', desc: 'Simple ways to manage stress.', link: 'stress-management-guide.html' },
+            { img: 'https://img.icons8.com/color/96/calendar--v2.png', title: 'Digital Detox for Students', desc: 'Reduce screen time easily.', link: 'digital-detox-guide.html' },
+            { img: 'https://img.icons8.com/color/96/meditation-guru.png', title: 'Stress Management Techniques', desc: 'Simple ways to manage stress.', link: 'stress-management-guide.html' },
+            { img: 'https://img.icons8.com/color/96/meditation-guru.png', title: 'Stress Management Techniques', desc: 'Simple ways to manage stress.', link: 'stress-management-guide.html' },
+            { img: 'https://img.icons8.com/color/96/meditation-guru.png', title: 'Stress Management Techniques', desc: 'Simple ways to manage stress.', link: 'stress-management-guide.html' },
+            { img: 'https://img.icons8.com/color/96/meditation-guru.png', title: 'Stress Management Techniques', desc: 'Simple ways to manage stress.', link: 'stress-management-guide.html' },
+            { img: 'https://img.icons8.com/color/96/meditation-guru.png', title: 'Stress Management Techniques', desc: 'Simple ways to manage stress.', link: 'stress-management-guide.html' },
+            { img: 'https://img.icons8.com/color/96/meditation-guru.png', title: 'Stress Management Techniques', desc: 'Simple ways to manage stress.', link: 'stress-management-guide.html' },
+            { img: 'https://img.icons8.com/color/96/meditation-guru.png', title: 'Stress Management Techniques', desc: 'Simple ways to manage stress.', link: 'stress-management-guide.html' },
+            { img: 'https://img.icons8.com/color/96/meditation-guru.png', title: 'Stress Management Techniques', desc: 'Simple ways to manage stress.', link: 'stress-management-guide.html' },
+            { img: 'https://img.icons8.com/color/96/meditation-guru.png', title: 'Stress Management Techniques', desc: 'Simple ways to manage stress.', link: 'stress-management-guide.html' },
+            { img: 'https://img.icons8.com/color/96/meditation-guru.png', title: 'Stress Management Techniques', desc: 'Simple ways to manage stress.', link: 'stress-management-guide.html' },
+
+          ],
+          physical: [
+            { img: 'https://img.icons8.com/color/96/fitness.png', title: 'Home Workout Basics', desc: 'Easy, no-equipment exercises.', link: 'home-workout-guide.html' }
+          ],
+          productivity: [
+            { img: 'https://img.icons8.com/color/96/organize.png', title: 'Time Management Hacks', desc: 'Boost your productivity.', link: 'time-management-guide.html' }
+          ]
+        }
+      },
+      finance: {
+        name: "Financial Freedom",
+        subs: [
+          {name: "Budgeting & Saving", key: "budget"},
+          {name: "Passive Income", key: "passive"},
+          {name: "Investing & Growth", key: "investing"}
+        ],
+        guides: {
+          budget: [
+            { img: 'https://img.icons8.com/color/96/wallet.png', title: 'Personal Budget Creation', desc: 'Simple budget for students.', link: 'personal-budget-guide.html' }
+          ],
+          passive: [
+            { img: 'https://img.icons8.com/color/96/coins.png', title: 'Dropshipping Basics', desc: 'Start a passive ecom store.', link: 'dropshipping-guide.html' }
+          ],
+          investing: [
+            { img: 'https://img.icons8.com/color/96/stock-market.png', title: 'Stock Market Starter', desc: 'Begin with stocks and funds.', link: 'stock-market-guide.html' }
+          ]
+        }
+      }
+    };
+
+    function getGuidesToShow(catKey, subKey, page) {
+      const guides = guidesData[catKey].guides[subKey] || [];
+      const start = (page-1) * guidesPerPage;
+      const end = start + guidesPerPage;
+      return guides.slice(start, end);
+    }
+
+    function getNumPages(catKey, subKey) {
+      const guides = guidesData[catKey].guides[subKey] || [];
+      return Math.ceil(guides.length / guidesPerPage);
+    }
+
+    function switchGuides(catKey, subKey, pageNum=1) {
+      currentCatKey = catKey; currentSubKey = subKey; currentPage = pageNum;
+      const guides = guidesData[catKey].guides[subKey] || [];
+      const totalPages = getNumPages(catKey, subKey);
+      const guidesToShow = getGuidesToShow(catKey, subKey, currentPage);
+      const cardsContainer = document.getElementById('guideCards');
+      let guidesHtml = '';
+      guidesToShow.forEach(guide => {
+        guidesHtml += `
+        <div class="col-12 col-md-4">
+          <div class="guide-card">
+            <img src="${guide.img}" class="guide-img" alt="${guide.title}" />
+            <div class="guide-title">${guide.title}</div>
+            <div class="guide-desc">${guide.desc}</div>
+            <a href="${guide.link}" class="guide-btn">Open Guide</a>
+          </div>
+        </div>
+        `;
+      });
+      transitionGuides(cardsContainer, guidesHtml);
+
+      // Show note if more guides in next page
+      const moreGuidesNote = document.getElementById('noteMoreGuides');
+      if (totalPages > currentPage) {
+        moreGuidesNote.innerHTML = '<div class="note-more-guides">More guides in the next page</div>';
+      } else {
+        moreGuidesNote.innerHTML = '';
+      }
+
+      renderPagination(totalPages, currentPage);
+    }
+
+    function renderPagination(totalPages, currentPage) {
+      const pagin = document.getElementById('pagination');
+      if (!pagin) return;
+      pagin.innerHTML = '';
+      if (totalPages < 2) return;
+      pagin.innerHTML += `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}"><a class="page-link" href="#">&#171;</a></li>`;
+      for (let i=1; i<=totalPages; i++) {
+        pagin.innerHTML += `<li class="page-item ${i === currentPage ? 'active' : ''}"><a class="page-link" href="#">${i}</a></li>`;
+      }
+      pagin.innerHTML += `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}"><a class="page-link" href="#">&#187;</a></li>`;
+      pagin.querySelectorAll('.page-link').forEach((el, idx) => {
+        el.onclick = function(e) {
+          e.preventDefault();
+          if (el.innerHTML === '&#171;') { if (currentPage > 1) switchGuides(currentCatKey, currentSubKey, currentPage-1);}
+          else if (el.innerHTML === '&#187;') { if (currentPage < totalPages) switchGuides(currentCatKey, currentSubKey, currentPage+1);}
+          else { switchGuides(currentCatKey, currentSubKey, parseInt(el.innerHTML));}
+        }
+      });
+    }
+
+    function renderSubcategories(catKey, subKey=null) {
+      const subs = guidesData[catKey].subs;
+      const container = document.getElementById('subcategoryTabs');
+      container.innerHTML = '';
+      subs.forEach((sub, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'subcategory-btn' + ((subKey ? subKey : subs[0].key) === sub.key ? ' active' : '');
+        btn.textContent = sub.name;
+        btn.setAttribute('data-subcategory', sub.key);
+        btn.onclick = () => { renderSubcategories(catKey, sub.key); switchGuides(catKey, sub.key, 1);};
+        container.appendChild(btn);
+      });
+    }
+
+    function transitionGuides(cardsContainer, nextGuidesHtml) {
+      const cards = cardsContainer.querySelectorAll('.guide-card');
+      cards.forEach(card => card.classList.add('slide-out-left'));
+      setTimeout(() => {
+        cardsContainer.innerHTML = nextGuidesHtml;
+        const newCards = cardsContainer.querySelectorAll('.guide-card');
+        newCards.forEach(card => card.classList.add('slide-in-right'));
+        setTimeout(() => { newCards.forEach(card => card.classList.remove('slide-in-right')); }, 530);
+      }, 350);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const defaultCat = 'money';
+      renderSubcategories(defaultCat);
+      switchGuides(defaultCat, guidesData[defaultCat].subs[0].key, 1);
+      document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.onclick = function() {
+          document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          const catKey = this.getAttribute('data-category');
+          renderSubcategories(catKey);
+          switchGuides(catKey, guidesData[catKey].subs[0].key, 1);
+        };
+      });
+    });
+
+    document.addEventListener('click', function(event) {
+      var nav = document.getElementById('navbarNav');
+      var navbarToggler = document.querySelector('.navbar-toggler');
+      var isNavbarOpen = nav.classList.contains('show');
+      if (isNavbarOpen && !nav.contains(event.target) && !navbarToggler.contains(event.target)) {
+        navbarToggler.click();
+      }
+    });
+
+    // -- You can add unlimited guides to each array, and pagination/note will update automatically --
+  </script>
+</body>
+</html>

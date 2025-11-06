@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Freelancing Jobs - EmpowerHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { height:100%; min-height:100%; }
+    body { font-family:'Inter',sans-serif; background:#0a1627; color:#f1f5fa; min-height:100vh; position: relative; }
+    .navbar, .footer { background: #141f38; }
+    .navbar-brand { font-weight:700; letter-spacing:2px; color:#53abf1!important; }
+    .nav-link { color:#e3f1fb!important; margin-left:1rem; font-weight:500; }
+    .nav-link:hover, .nav-link.active { color: #53abf1!important; }
+    .hero-section {
+      background: linear-gradient(90deg,#16233b 0%,#2351a2 100%);
+      border-radius:1rem;
+      margin:2rem auto 2.4rem auto;
+      box-shadow:0 4px 32px #001e4060;
+      padding:2.7rem 1.2rem;
+      max-width:720px;
+      text-align:center;
+    }
+    .hero-title { color:#53abf1; font-size:2.22rem; font-weight:700; }
+    .hero-sub { font-size:1.13rem; margin:.6rem 0 1.2rem 0; color:#e3f1fb;}
+    .hero-btn { background:#2471eb; color:#fff; font-weight:700; border:none; border-radius:2rem; font-size:1rem; padding:.7em 1.5em; }
+    .hero-btn:hover { background:#53abf1; color:#001e40;}
+    .filter-tabs {
+      display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem;
+      margin:1.1rem auto 1.2rem auto;
+      max-width:860px;
+    }
+    .filter-btn {
+      background:#1c2740; color:#53abf1; border:none; font-weight:600;
+      font-size:.96rem; padding:.41rem .97rem; border-radius:2rem;
+      box-shadow:0 1px 7px #001e4044; cursor:pointer; transition:.2s;
+    }
+    .filter-btn.active,.filter-btn:hover {background:#2471eb; color:#f1f5fa;}
+    .jobs-grid {margin-bottom:2rem;}
+    .job-card {
+      background:#222b47; border-radius:1rem; box-shadow:0 2px 10px #001e4033;
+      color:#f1f5fa; padding:1.15rem 1rem 1.05rem 1rem;
+      border:1px solid #246fcc20; margin-bottom:1.2rem;
+      position:relative; transition:box-shadow .14s; min-height:200px;
+    }
+    .job-logo {
+      width:38px; height:38px; object-fit:cover; border-radius:.48rem;
+      box-shadow:0 2px 7px #001e4066; background:#161f36;
+      position:absolute; right:1rem; top:.9rem;
+    }
+    .job-title { font-size:1.07rem; font-weight:700; color:#53abf1; margin-bottom:.43rem;}
+    .job-company { color:#7fc8ff; font-size:.95rem; margin-bottom:.16rem;}
+    .job-desc { font-size:.93rem; color:#b6cbe0; margin-bottom:.7em; }
+    .job-meta { font-size:.89rem; color:#53abf1;}
+    .job-btn { margin-top:.6rem; background:#2375ed; color:#fff;
+      font-weight:600; border:none; border-radius:1.1rem; padding:.45em .97em;
+      font-size:.95rem; }
+    .job-btn:hover {background:#53abf1; color:#001e40;}
+    .how-apply-section {max-width:740px; margin:2.1rem auto;}
+    .how-steps { display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center;}
+    .how-step-card {
+      background:#222b47; border-radius:1rem; box-shadow:0 2px 10px #001e4033;
+      padding:.8rem .9rem; color:#f1f5fa; min-width:140px; flex:1;
+      margin-bottom:.5rem;
+    }
+    .how-step-num { font-weight:700; color:#53abf1; font-size:1.06rem; }
+    .testimonial-section {max-width:750px; margin:2rem auto;}
+    .testimonial-card {
+      background:#222b47; color:#b6cbe0; border-radius:.7rem;
+      box-shadow:0 1px 7px #001e4040; margin-bottom:.9rem; padding:.7rem .9rem;
+      border:1px solid #246fcc20; font-size:.94rem;
+    }
+    .testimonial-by { color:#53abf1; font-size:.93em; font-weight:600;}
+    .resources-section {max-width:770px; margin:2rem auto;}
+    .resource-grid { display:flex; flex-wrap:wrap; gap:.7rem; }
+    .resource-card { background:#1e2542; border-radius:1rem; padding:.65rem .85rem; color:#53abf1; min-width:97px; font-size:.97em; box-shadow:0 1px 6px #12336614;}
+    .resource-card a {color:#53abf1;text-decoration: underline;}
+    .postjob-banner {
+      background:#141f38; border-radius:1rem;
+      border:2px solid #2471eb; padding:1.14rem; color:#f1f5fa;
+      max-width:760px; margin:2rem auto 0 auto; text-align:center;
+      box-shadow: 0 2px 14px #001e4050;
+      font-size:.97rem;
+    }
+    .postjob-banner .postjob-btn {
+      background:#53abf1; color:#0a1627;
+      font-weight:600; border:none; border-radius:2rem;
+      font-size:.97rem; padding:.56em 1.52em; margin-top:.5rem;
+    }
+    .postjob-banner .postjob-btn:hover {background:#2375ed;color:#fff;}
+    .footer { border-top:2px solid #2a395e; color:#b6cbe0; padding:.9rem 0; margin-top:2.1rem;}
+    .page-end-spacing {height:60px;}
+    /* Modal Styles */
+    .modal-emp {display:none;position:fixed;z-index:1202;left:0;top:0;width:100vw;height:100vh;background:#0009;}
+    .modal-emp.open {display:block;}
+    .modal-dialog-emp {
+      position:absolute;
+      top:50%;left:50%;transform:translate(-50%,-50%);
+      background:#181e31;
+      border-radius:1.2rem;
+      box-shadow:0 4px 24px #0007;
+      width:95vw; max-width:400px; min-width:250px;
+      padding:2rem 1.2rem 1.2rem 1.2rem;
+    }
+    .modal-dialog-emp h5 {font-size:1.22rem;color:#53abf1;font-weight:700;}
+    .modal-dialog-emp label {color:#b6cbe0;font-size:.92rem;}
+    .modal-close-emp {
+      position:absolute;top:.4rem;right:1.1rem;font-size:1.6rem;color:#2375ed; background:none; border:none; }
+    .modal-dialog-emp input, .modal-dialog-emp textarea {
+      background:#1e2542; color:#f1f5fa; border:1px solid #2375ed60; border-radius:.5rem; margin-bottom:.7rem;
+    }
+    .modal-dialog-emp input:focus,.modal-dialog-emp textarea:focus {border:1.5px solid #53abf1;}
+    .modal-dialog-emp .btn-primary {background:#2375ed;border:none;}
+    .modal-dialog-emp .btn-primary:hover {background:#53abf1;color:#001e40;}
+    .modal-dialog-emp .modal-note {color:#53abf1;font-size:.94rem;text-align:center;margin-top:1rem;}
+    .modal-dialog-emp input[type="file"] {
+      background: #1e2542;
+      color: #b6cbe0;
+      border: none;
+      padding: 2px;
+    }
+    @media(max-width:600px){
+      .modal-dialog-emp{padding:1.1rem .4rem 1rem .4rem;}
+    }
+    @media(max-width:576px){
+      .hero-title{font-size:1.17rem;}
+      .hero-section{margin:.7rem auto .9rem auto; padding:.6rem .09rem;}
+      .job-title{font-size:.96rem;}
+      .job-company,.job-meta,.job-desc{font-size:.86rem;}
+      .job-logo{width:32px;height:32px;right:.43rem;}
+      .postjob-banner{padding:.5rem;}
+      .testimonial-card,.how-step-card{padding:.29rem;}
+      .section-title{font-size:.95rem;}
+      .filter-btn{font-size:.82rem; padding:.25rem .6rem;}
+      .page-end-spacing {height:42px;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">EmpowerHub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="guides.html">Guides</a></li>
+          <li class="nav-item"><a class="nav-link active" href="freelancing.html">Freelance Jobs</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="post-job.html">Post a Job</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero-section shadow">
+    <div class="hero-title">Start Your Freelancing Journey</div>
+    <div class="hero-sub">
+      Find, apply, and level up with real freelance jobs for students.
+      <br>Remote, onsite, and internships across all skills.
+    </div>
+    <a href="#jobs-list" class="btn hero-btn">Browse Job Listings</a>
+  </section>
+  <!-- Filter Bar -->
+  <div class="filter-tabs" id="filterTabs"></div>
+  <!-- Jobs Grid -->
+  <div class="container jobs-grid" id="jobs-list">
+    <div class="row" id="jobCards"></div>
+  </div>
+  <!-- How to Apply Section -->
+  <section class="how-apply-section">
+    <div class="fs-4 fw-bold mb-3" style="color:#53abf1;">How to Apply for Freelance Jobs</div>
+    <div class="how-steps">
+      <div class="how-step-card"><div class="how-step-num">1</div>Browse job listings</div>
+      <div class="how-step-card"><div class="how-step-num">2</div>Prepare your resume & profile</div>
+      <div class="how-step-card"><div class="how-step-num">3</div>Apply via job form or email</div>
+      <div class="how-step-card"><div class="how-step-num">4</div>Get shortlisted & interview</div>
+    </div>
+  </section>
+  <!-- Student Success Stories -->
+  <section class="testimonial-section">
+    <div class="fs-4 fw-bold mb-2" style="color:#53abf1;">Student Success Stories</div>
+    <div class="testimonial-card">“EmpowerHub helped me land my first paid writing gig and taught me how to apply professionally!” <div class="testimonial-by">— Anjali, JNTU Student</div></div>
+    <div class="testimonial-card">“I got an internship from the jobs page, and now my LinkedIn profile looks awesome!”<div class="testimonial-by">— Dhruv, NIT Andhra</div></div>
+  </section>
+  <!-- Resources for Freelancers -->
+  <section class="resources-section">
+    <div class="fs-4 fw-bold mb-2" style="color:#53abf1;">Freelance Resources</div>
+    <div class="resource-grid">
+      <div class="resource-card"><a href="resume-guide.html">Resume Tips Guide</a></div>
+      <div class="resource-card"><a href="portfolio-template.html">Portfolio Templates</a></div>
+      <div class="resource-card"><a href="fiverr-guide.html">How to Create a Fiverr Account</a></div>
+      <div class="resource-card"><a href="email-tips-guide.html">Professional Email Tips</a></div>
+    </div>
+  </section>
+  <!-- Post a Job Banner -->
+  <section class="postjob-banner">
+    <div class="fs-5 fw-bold mb-2" style="color:#53abf1;">Want to hire student freelancers?</div>
+    <div>Post your opportunity and reach thousands of talented college students for free. All jobs are reviewed for authenticity.</div>
+    <a href="post-job.html" class="postjob-btn btn mt-2">Post a Job</a>
+  </section>
+  <div class="page-end-spacing"></div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="mb-2">
+        <a href="#" class="mx-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" width="22" alt="Instagram" style="vertical-align:middle;filter:invert(52%) sepia(85%) saturate(1200%) hue-rotate(180deg) brightness(110%) contrast(100%);"></a>
+        <a href="#" class="mx-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width="22" alt="LinkedIn" style="vertical-align:middle;filter:invert(52%) sepia(85%) saturate(1200%) hue-rotate(180deg) brightness(110%) contrast(100%);"></a>
+        <a href="mailto:support@empowerhub.com" class="mx-2" style="color:#53abf1">support@empowerhub.com</a>
+      </div>
+      <div>
+        <a href="about.html" class="mx-2">About</a> |
+        <a href="contactus.html" class="mx-2">Contact</a> |
+        <a href="#" class="mx-2">Privacy</a> |
+        <a href="#" class="mx-2">Terms</a>
+      </div>
+      <small class="d-block mt-2">&copy; 2025 EmpowerHub. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- Apply Modal -->
+  <div class="modal-emp" id="applyModal">
+    <div class="modal-dialog-emp">
+      <button class="modal-close-emp" onclick="closeModal()" aria-label="Close">&times;</button>
+      <h5>Apply for this Job</h5>
+      <form id="applyForm" enctype="multipart/form-data" autocomplete="off">
+        <div class="mb-2">
+          <label for="applyName">Your Name</label>
+          <input type="text" class="form-control" id="applyName" required>
+        </div>
+        <div class="mb-2">
+          <label for="applyEmail">Your Email</label>
+          <input type="email" class="form-control" id="applyEmail" required>
+        </div>
+        <div class="mb-2">
+          <label for="applyWhy">Why should we hire you?</label>
+          <textarea class="form-control" id="applyWhy" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="applyResume">Upload Resume (PDF, DOCX, etc.)</label>
+          <input type="file" class="form-control" id="applyResume" accept=".pdf,.doc,.docx,.rtf,.txt" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Submit Application</button>
+        <div class="modal-note mt-3">
+          Or, you can directly email us at <a href="mailto:vinaythemay@gmail.com" style="color:#53abf1">vinaythemay@gmail.com</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // --- Jobs data ---
+    const jobs = [
+      {
+        title: "Social Media Intern",
+        company: "DigitalDesk Agency",
+        desc: "Help brands grow on Instagram, Twitter, and Facebook. Create posts, stories, and interact with followers.",
+        meta: "Remote | ₹5,000/mo | Internship",
+        logo: "https://img.icons8.com/color/96/facebook-circled.png",
+        tags: ["Remote", "Social Media", "Internship"]
+      },
+      {
+        title: "Content Writer",
+        company: "EdTech Campus",
+        desc: "Write blog posts or tutorials for Indian students. Topics: exams, productivity, tech rituals.",
+        meta: "Remote | ₹400/article",
+        logo: "https://img.icons8.com/color/96/text.png",
+        tags: ["Remote", "Writing"]
+      },
+      {
+        title: "Web Developer (PT)",
+        company: "StartupHub",
+        desc: "Maintain and upgrade real student projects, work with a team of young coders.",
+        meta: "Onsite (Hyderabad) | ₹10,000/mo | Part-Time",
+        logo: "https://img.icons8.com/color/96/code.png",
+        tags: ["Onsite", "Coding", "Part-Time"]
+      },
+      {
+        title: "Graphic Designer",
+        company: "DesignNest",
+        desc: "Create simple graphics, posters, and banners for student events.",
+        meta: "Remote | ₹200/design",
+        logo: "https://img.icons8.com/color/96/design.png",
+        tags: ["Remote", "Design"]
+      },
+      {
+        title: "Data Entry Operator",
+        company: "DataDesk",
+        desc: "Work on Excel sheets and manage online data for small businesses.",
+        meta: "Onsite (Vizag) | ₹3000/mo",
+        logo: "https://img.icons8.com/color/96/ms-excel.png",
+        tags: ["Onsite", "Data Entry"]
+      }
+    ];
+
+    const filters = [
+      "All", "Remote", "Onsite", "Writing", "Design", "Coding", "Social Media", "Data Entry", "Internship", "Part-Time"
+    ];
+
+    // Create filter buttons
+    const filterTabs = document.getElementById("filterTabs");
+    filters.forEach(f => {
+      const btn = document.createElement("button");
+      btn.className = `filter-btn${f === "All" ? " active" : ""}`;
+      btn.textContent = f;
+      btn.setAttribute("data-filter", f);
+      btn.onclick = () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        showJobs(f);
+      };
+      filterTabs.appendChild(btn);
+    });
+
+    // Show jobs according to filter and attach Apply listeners
+    function showJobs(filter) {
+      const row = document.getElementById("jobCards");
+      let jobsToShow = jobs;
+      if(filter !== "All") {
+        jobsToShow = jobs.filter(job =>
+          job.tags && job.tags.map(x=>x.toLowerCase()).includes(filter.toLowerCase())
+        );
+      }
+      let html = "";
+      jobsToShow.forEach((job, idx) => {
+        html += `
+        <div class="col-12 col-md-4">
+          <div class="job-card">
+            <img src="${job.logo}" class="job-logo" alt="Logo">
+            <div class="job-title">${job.title}</div>
+            <div class="job-company">${job.company}</div>
+            <div class="job-desc">${job.desc}</div>
+            <div class="job-meta">${job.meta}</div>
+            <button class="job-btn" data-job="${idx}">Apply Now</button>
+          </div>
+        </div>
+        `;
+      });
+      row.innerHTML = html;
+
+      // Attach modal "Apply" listeners
+      row.querySelectorAll('.job-btn').forEach(btn => {
+        btn.onclick = function() {
+          openModal();
+        };
+      });
+    }
+    showJobs("All");
+
+    // Apply Modal functions
+    function openModal() {
+      document.getElementById('applyModal').classList.add('open');
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal() {
+      document.getElementById('applyModal').classList.remove('open');
+      document.body.style.overflow = "auto";
+      // Reset the form for next use
+      setTimeout(() => { document.getElementById('applyForm').reset(); document.getElementById('applyForm').innerHTML = defaultFormHtml; bindFormEvents(); }, 350);
+    }
+    document.getElementById('applyModal').addEventListener('click', function(e){
+      if(e.target === this) closeModal();
+    });
+
+    // Save default form so it can be restored after submitting
+    const defaultFormHtml = document.getElementById('applyForm').innerHTML;
+
+    function bindFormEvents() {
+      document.getElementById('applyForm').onsubmit = function(e){
+        e.preventDefault();
+        // "Upload" does nothing for prototype!
+        this.innerHTML = "<div class='alert alert-info text-center'>Application submitted! We'll reach out soon.</div>";
+        setTimeout(closeModal, 1300);
+      };
+    }
+    bindFormEvents();
+
+    // Mobile menu auto-close
+    document.addEventListener('click', function(event) {
+      var nav = document.getElementById('navbarNav');
+      var navbarToggler = document.querySelector('.navbar-toggler');
+      var isNavbarOpen = nav && nav.classList.contains('show');
+      if (isNavbarOpen && !nav.contains(event.target) && !navbarToggler.contains(event.target)) {
+        navbarToggler.click();
+      }
+    });
+  </script>
+</body>
+</html>

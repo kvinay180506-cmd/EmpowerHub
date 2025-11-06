@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Empower Hub - Student Earning & Growth</title>
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a1627;
+      color: #f1f5fa;
+      min-height: 100vh;
+    }
+    .navbar, .footer { background: #141f38; }
+    .navbar-brand { font-weight: 700; letter-spacing: 2px; color: #53abf1 !important; }
+    .nav-link { color: #e3f1fb !important; margin-left: 1rem; font-weight: 500; }
+    .nav-link:hover, .nav-link.active { color: #53abf1 !important; }
+    .hero {
+      background: linear-gradient(90deg, #16233b 0%, #2351a2 100%);
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 32px #001e4060;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.2rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 {
+      color: #53abf1;
+      font-weight: 700;
+      font-size: 2.3rem;
+      line-height: 1.15;
+      text-align: center;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      margin-bottom: 1.7rem;
+      margin-top: .9rem;
+      color: #f1f5fa;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .hero .btn-lg {
+      background: #2471eb;
+      color: #f1f5fa;
+      border: none;
+      font-weight: 700;
+      border-radius: 0.75rem;
+      font-size: 1.07rem;
+      padding: .8em 2em;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 2px 8px #001e4066;
+    }
+    .hero .btn-lg:hover {
+      background: #53abf1;
+      color: #0a1627;
+    }
+    @media (max-width: 576px) {
+      .hero { 
+        padding: 1.5rem 0.7rem;
+        border-radius: 0.7rem;
+        max-width: 98vw;
+      }
+      .hero h1 { font-size: 1.44rem; }
+      .hero p { font-size: .95rem; }
+      .hero .btn-lg { font-size: .97rem; padding: .7em 1.35em; }
+    }
+    .section-title { color: #53abf1; margin-bottom: 1.5rem; font-size: 2rem; }
+    .card {
+      background: #1c2740;
+      border: 1px solid #246fcc;
+      color: #f1f5fa;
+      box-shadow: 0 2px 6px #0002;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-4px) scale(1.015); box-shadow: 0 6px 20px #001e40ad; }
+    .btn-pill {
+      border-radius: 50px;
+      margin: 0 0.3em 0.4em 0;
+      font-size: .95em;
+      padding: 0.3em 1.1em;
+      font-weight: 500;
+      background: #2471eb;
+      color: #fff;
+      border: none;
+      box-shadow: 0 1px 5px #0a162758;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-pill:hover { background: #53abf1; color: #001e40; }
+    .footer {
+      border-top: 2px solid #2a395e;
+      color: #b6cbe0;
+      padding: 1.2rem 0;
+      margin-top: 3rem;
+    }
+    .testimonial { background: #222b47; border-radius: .75rem; padding: 1rem; margin: .5rem; box-shadow: 0 1px 5px #12336633; color: #b6cbe0; }
+    .icon { font-size: 2.5rem; color: #53abf1; margin-bottom: 0.8rem; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#">EmpowerHub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="guides.html">Guides</a></li>
+          <li class="nav-item"><a class="nav-link" href="freelancing.html">Freelance Jobs</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="postjob.html">Post a Job</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Optimized Hero Section -->
+  <section class="hero shadow">
+    <h1>Empower Your Student Life!</h1>
+    <p>Step-by-step earning guides, self-care resources, real jobs, and student deals—all in one place.</p>
+    <a href="guides.html" class="btn btn-primary btn-lg shadow">Explore Practical Guides</a>
+  </section>
+
+  <!-- Guides Section -->
+  <section class="container my-4">
+    <h2 class="section-title">Practical Guides</h2>
+    <div class="row g-4">
+      <!-- Money Making -->
+      <div class="col-md-4">
+        <div class="card text-center p-3">
+          <div class="icon">💸</div>
+          <h4 class="mb-2">Money Making</h4>
+          <p class="mb-3">Step-by-step earning methods for every budget.</p>
+          <div>
+           <a href="guides.html"> <span class="btn btn-pill">No Investments</span></a>
+           <a href="guides.html"> <span class="btn btn-pill">Little Investments</span></a>
+            <a href="guides.html"><span class="btn btn-pill">High Investments</span></a>
+          </div>
+        </div>
+      </div>
+      <!-- Self Care -->
+      <div class="col-md-4">
+        <div class="card text-center p-3">
+          <div class="icon">🧘‍♂️</div>
+          <h4 class="mb-2">Self Care</h4>
+          <p class="mb-3">Mind, body, and routines for student wellness.</p>
+          <div>
+            <span class="btn btn-pill">Mental Wellness</span>
+            <span class="btn btn-pill">Physical Fitness</span>
+            <span class="btn btn-pill">Productivity & Skills</span>
+          </div>
+        </div>
+      </div>
+      <!-- Financial Freedom -->
+      <div class="col-md-4">
+        <div class="card text-center p-3">
+          <div class="icon">🤑</div>
+          <h4 class="mb-2">Financial Freedom</h4>
+          <p class="mb-3">Budgeting, passive income, and investment basics.</p>
+          <div>
+            <span class="btn btn-pill">Budgeting & Saving</span>
+            <span class="btn btn-pill">Passive Income</span>
+            <span class="btn btn-pill">Investing & Growth</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Freelancing Jobs Highlight -->
+  <section class="container my-5">
+    <h2 class="section-title">Real Freelancing Opportunities</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Social Media Intern</h5>
+          <div class="mb-2 text-info">Online | ₹5,000/mo</div>
+          <p>Help grow brands’ presence across Instagram & Twitter.</p>
+          <a href="#" class="btn btn-outline-primary btn-sm">Apply Now</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Content Writer</h5>
+          <div class="mb-2 text-info">Remote | ₹400/article</div>
+          <p>Write blog posts on trending student topics.</p>
+          <a href="#" class="btn btn-outline-primary btn-sm">Apply Now</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Web Developer</h5>
+          <div class="mb-2 text-info">Part-Time | ₹10,000/mo</div>
+          <p>Maintain and upgrade real student projects.</p>
+          <a href="#" class="btn btn-outline-primary btn-sm">Apply Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="freelancing.html" class="btn btn-primary">See All Jobs</a>
+    </div>
+  </section>
+
+  <!-- Post a Job -->
+  <section class="container mb-5">
+    <div class="card text-center p-4 mb-3">
+      <h4>Want to hire students? <span class="text-primary">Post a Freelancing Job!</span></h4>
+      <p>Share real opportunities. All posts reviewed for authenticity.</p>
+      <a href="postjob.html" class="btn btn-outline-primary">Post Your Job</a>
+    </div>
+  </section>
+
+  <!-- Student Shop Area -->
+  <section class="container mb-5">
+    <h2 class="section-title">Curated Student Shopping</h2>
+    <div class="row g-4">
+      <div class="col-md-3 col-6">
+        <div class="card p-2">
+          <img src="https://m.media-amazon.com/images/I/6125mFrzr6L._AC_UY327_FMwebp_QL65_.jpg" class="card-img-top" alt="Headphones">
+          <div class="card-body pt-2">
+            <h6 class="card-title mb-2">Noise Cancelling Headphones</h6>
+            <div class="mb-1 text-info">₹1,499</div>
+            <a href="#" class="btn btn-outline-primary btn-sm">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="card p-2">
+          <img src="https://m.media-amazon.com/images/I/81bLuIUgQzL._AC_UY327_FMwebp_QL65_.jpg" class="card-img-top" alt="Water Bottle">
+          <div class="card-body pt-2">
+            <h6 class="card-title mb-2">Thermal Water Bottle</h6>
+            <div class="mb-1 text-info">₹399</div>
+            <a href="#" class="btn btn-outline-primary btn-sm">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="card p-2">
+          <img src="https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY327_FMwebp_QL65_.jpg" class="card-img-top" alt="Laptop Stand">
+          <div class="card-body pt-2">
+            <h6 class="card-title mb-2">Adjustable Laptop Stand</h6>
+            <div class="mb-1 text-info">₹749</div>
+            <a href="#" class="btn btn-outline-primary btn-sm">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="card p-2">
+          <img src="https://m.media-amazon.com/images/I/71CEfFD4WcL._AC_UY327_FMwebp_QL65_.jpg" class="card-img-top" alt="Study Lamp">
+          <div class="card-body pt-2">
+            <h6 class="card-title mb-2">Flexible Study Lamp</h6>
+            <div class="mb-1 text-info">₹329</div>
+            <a href="#" class="btn btn-outline-primary btn-sm">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <a href="shop.html" class="btn btn-outline-primary">View All Products</a>
+    </div>
+  </section>
+
+  <!-- Community Feedback -->
+  <section class="container mb-5">
+    <h2 class="section-title">Hear From Our Users</h2>
+    <div class="row g-3 justify-content-center">
+      <div class="col-md-4">
+        <div class="testimonial">
+          <strong>“It’s never been easier to find freelance work as a student!”</strong>
+          <br><span>- Aarti, NIT Student</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial">
+          <strong>“The guides helped me land my first paid gig online.”</strong>
+          <br><span>- Raj, VIT</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial">
+          <strong>“Really love the self-care tips and affordable products!”</strong>
+          <br><span>- Shruti, JNTU</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="mb-2">
+        <a href="#" class="mx-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" width="22" alt="Instagram" style="vertical-align:middle;filter:invert(52%) sepia(85%) saturate(1200%) hue-rotate(180deg) brightness(110%) contrast(100%);"></a>
+        <a href="#" class="mx-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" width="22" alt="LinkedIn" style="vertical-align:middle;filter:invert(52%) sepia(85%) saturate(1200%) hue-rotate(180deg) brightness(110%) contrast(100%);"></a>
+        <a href="mailto:support@empowerhub.com" class="mx-2" style="color:#53abf1">support@empowerhub.com</a>
+      </div>
+      <div>
+        <a href="about.html" class="mx-2">About</a> |
+        <a href="contactus.html" class="mx-2">Contact</a> |
+        <a href="#" class="mx-2">Privacy</a> |
+        <a href="#" class="mx-2">Terms</a>
+      </div>
+      <small class="d-block mt-2">&copy; 2025 EmpowerHub. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Auto-close navbar-collapse on outside click for mobile
+    document.addEventListener('click', function(event) {
+      var nav = document.getElementById('navbarNav');
+      var navbarToggler = document.querySelector('.navbar-toggler');
+      var isNavbarOpen = nav.classList.contains('show');
+      if (
+        isNavbarOpen &&
+        !nav.contains(event.target) &&
+        !navbarToggler.contains(event.target)
+      ) {
+        navbarToggler.click();
+      }
+    });
+  </script>
+</body>
+</html>
