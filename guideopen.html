@@ -12,6 +12,7 @@
       background: #0a1627;
       color: #f1f5fa;
       min-height: 100vh;
+      margin: 0;
     }
     .navbar, .footer { background: #141f38; }
     .navbar-brand { font-weight: 700; letter-spacing: 2px; color: #53abf1 !important; }
@@ -31,53 +32,64 @@
       font-weight: 700;
       margin-bottom: 0.6rem;
       text-align: center;
+      line-height: 1.23;
     }
     .guide-summary {
-      font-size: 1.13rem;
+      font-size: 1.17rem;
       color: #e3f1fb;
       margin-bottom: 2.1rem;
       text-align: center;
+      line-height: 1.7;
     }
     .steps-title {
       color: #2375ed;
-      font-size: 1.22rem;
+      font-size: 1.21rem;
       margin-bottom: 1rem;
       font-weight: 700;
       text-align: left;
     }
     .guide-step {
-      border-left: 4px solid #53abf1;
       background: #1e2542;
       border-radius: 0.8rem;
       box-shadow: 0 1px 6px #001e4050;
       margin-bottom: 2.1rem;
-      padding: 1.1rem 1.2rem 1.1rem 1.3rem;
+      padding: 1.1rem 1.2rem 1.1rem 1.2rem;
       position: relative;
       transition: box-shadow 0.2s;
+      min-height: 70px;
+      border-left: 4px solid #53abf1;
     }
     .guide-step:hover { box-shadow: 0 2px 14px #2375ed77; }
     .step-num {
       position: absolute;
-      top: 1.2rem;
-      left: -2.2rem;
+      top: 12px; left: 14px;
       background: #53abf1;
       color: #181e31;
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       font-weight: bold;
-      border-radius: 40%;
-      width: 2.4rem;
-      height: 2.4rem;
+      border-radius: 41%;
+      width: 2rem; height: 2rem;
+      min-width:2rem; min-height:2rem;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 1px 4px #2375ed77;
+      z-index: 2;
     }
-    .step-title { font-weight: 700; font-size: 1.07rem; margin-bottom: 0.4rem; color: #53abf1;}
+    .step-title { 
+      font-weight: 700; 
+      font-size: 1.08rem; 
+      margin-bottom: 0.38rem; 
+      color: #53abf1;
+      margin-left: 2.7rem;
+      margin-top:.09rem;
+     }
+    .step-content{margin-left: 2.7rem;}
     .step-img {
       display: block;
       max-width: 100%;
-      margin: 0.6rem auto 0.8rem auto;
-      border-radius: 0.6rem;
+      margin: 0.57rem auto 0.85rem auto;
+      border-radius: 0.59rem;
       box-shadow: 0 2px 12px #001e4066;
       background: #141f38;
       border: 1px solid #53abf1;
@@ -85,8 +97,10 @@
     .guide-tips {
       background: #2375ed22;
       border-radius: 0.8rem;
-      padding: 1.0rem 1.3rem;
-      margin-bottom: 2rem;
+      padding: 1.05rem 1.17rem;
+      margin-bottom: 1.45rem;
+      font-size: 1.06rem;
+      line-height: 1.7;
     }
     .guide-tips strong { color: #2375ed;}
     .back-btn {
@@ -101,6 +115,8 @@
       font-weight: 600;
       text-decoration: none;
       transition: background .18s, color .18s;
+      margin-left: auto;
+      margin-right: auto;
     }
     .back-btn:hover { background: #2375ed; color: #181e31 !important;}
     .footer {
@@ -109,14 +125,40 @@
       padding: 1.05rem 0;
       margin-top: 2.1rem;
     }
+    @media (max-width: 960px) {
+      .container-guide {max-width: 99vw;}
+    }
+    @media (max-width: 700px){
+      .container-guide{padding:1.2rem .4rem 1.3rem .4rem;}
+    }
     @media (max-width: 600px) {
-      .container-guide { padding: 1.2rem 0.7rem 1.3rem 0.7rem; }
-      .guide-title { font-size: 1.2rem; }
-      .guide-summary { font-size: 1.01rem; }
-      .steps-title { font-size: 1.06rem; }
-      .guide-step { padding: 0.8rem 0.8rem 0.8rem 1.0rem;}
-      .step-title { font-size: .98rem;}
-      .back-btn { font-size: .94rem; padding:.7em 1.3em;}
+      .container-guide {padding: 0.77rem 0.07rem 1.1rem 0.07rem;}
+      .guide-title { font-size: 1.13rem; }
+      .guide-summary { font-size: .99rem; margin-bottom: 1.18rem; }
+      .steps-title { font-size: .97rem; }
+      .guide-step { 
+        padding: 0.74rem 0.47rem 0.82rem 0.54rem; 
+        font-size:.97rem; 
+        min-height: auto;
+        border-left-width:3px;
+      }
+      .step-num {
+        position: absolute;
+        top: 10px; left: 12px;
+        width: 1.45rem; height: 1.45rem;
+        font-size:.98rem;
+        min-width:unset; min-height:unset;
+        margin:0;
+      }
+      .step-title { font-size: .96rem; margin-left: 2.2rem;}
+      .step-content{margin-left:2.2rem;}
+      .step-img { border-radius: .36rem;}
+      .guide-tips {padding: 0.7rem 0.6rem; font-size:.97rem;}
+      .back-btn { font-size: .91rem; padding:.7em 1.3em;}
+    }
+    @media (max-width: 400px) {
+      .container-guide {border-radius:.47rem;}
+      .step-title, .step-content{margin-left:1.2rem;}
     }
   </style>
 </head>
@@ -148,43 +190,37 @@
     <div class="guide-summary">
       This guide walks you through creating your Fiverr account the right way—with practical screenshots and tips to help you start freelancing, even as a complete beginner!
     </div>
-
     <div class="steps-title">Step-by-Step Instructions:</div>
 
     <!-- Step 1 -->
     <div class="guide-step">
       <span class="step-num">1</span>
       <div class="step-title">Go to Fiverr Website</div>
-      <img src="https://res.cloudinary.com/dsnqf3s0s/image/upload/v1749575930/Step_3_la6tmz.png" class="step-img" alt="Fiverr Home Page">
-      <div>
-        Open your browser and go to <a href="https://fiverr.com" target="_blank" style="color:#53abf1;text-decoration:underline;">fiverr.com</a>. 
+      <div class="step-content">
+        <img src="https://res.cloudinary.com/dsnqf3s0s/image/upload/v1749575930/Step_3_la6tmz.png" class="step-img" alt="Fiverr Home Page">
+        Open your browser and go to <a href="https://fiverr.com" target="_blank" style="color:#53abf1;text-decoration:underline;">fiverr.com</a>.
         Click on the “Join” button at the top-right corner of the home page.
       </div>
     </div>
-
     <!-- Step 2 -->
     <div class="guide-step">
       <span class="step-num">2</span>
       <div class="step-title">Enter Your Email Address</div>
-      <img src="https://res.cloudinary.com/dsnqf3s0s/image/upload/v1749575929/step_4-1_z4tqet.png" class="step-img" alt="Enter Email on Fiverr">
-      <div>
+      <div class="step-content">
+        <img src="https://res.cloudinary.com/dsnqf3s0s/image/upload/v1749575929/step_4-1_z4tqet.png" class="step-img" alt="Enter Email on Fiverr">
         Type your email address and press “Continue”. Use your active email—you’ll need to verify it in the next step.
       </div>
     </div>
-
     <!-- Step 3 -->
     <div class="guide-step">
       <span class="step-num">3</span>
       <div class="step-title">Set Your Username and Password</div>
-      <img src="YOUR_STEP_3_IMAGE_URL_HERE" class="step-img" alt="Set Username and Password">
-      <div>
-        Pick a unique username and a strong password (include uppercase, lowercase, and numbers for security). 
+      <div class="step-content">
+        <img src="YOUR_STEP_3_IMAGE_URL_HERE" class="step-img" alt="Set Username and Password">
+        Pick a unique username and a strong password (include uppercase, lowercase, and numbers for security).
         Click “Join” or “Create Account” to continue.
       </div>
     </div>
-
-    <!-- Add more steps as needed below, just copy-paste the step block and update the image and text -->
-
     <!-- Tips/Checklist -->
     <div class="guide-tips">
       <strong>Checklist / Pro-Tips:</strong>
@@ -196,10 +232,8 @@
         <li>Don’t use fake emails or sketchy info—your account will get banned.</li>
       </ul>
     </div>
-
     <a href="guides.html" class="back-btn">&larr; Back to All Guides</a>
   </div>
-
   <!-- Footer -->
   <footer class="footer">
     <div class="container text-center">
